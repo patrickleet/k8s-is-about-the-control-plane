@@ -1,0 +1,6 @@
+version: 3
+endpoint: http://todos-api.127.0.0.1.sslip.io
+metadata_directory: metadata
+actions:
+  kind: synchronous
+  handler_webhook_baseurl: http://host.docker.internal

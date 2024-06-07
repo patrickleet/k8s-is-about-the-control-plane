@@ -1,0 +1,23 @@
+apiVersion: schemas.schemahero.io/v1alpha4
+kind: Table
+metadata:
+  name: todos
+spec:
+  database: todos-postgresql
+  name: todos
+  schema:
+    postgres:
+      primaryKey: [id]
+      columns:
+      - name: id
+        type: uuid
+        constraints:
+          notNull: true
+      - name: todo
+        type: text
+        constraints:
+          notNull: true
+      - name: completed
+        type: boolean
+        constraints:
+          notNull: true

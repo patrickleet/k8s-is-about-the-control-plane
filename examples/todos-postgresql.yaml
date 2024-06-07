@@ -1,0 +1,18 @@
+apiVersion: "acid.zalan.do/v1"
+kind: postgresql
+metadata:
+  name: todos-postgresql
+spec:
+  teamId: "todos"
+  volume:
+    size: 1Gi
+  numberOfInstances: 2
+  users:
+    admin:  # database owner
+    - superuser
+    - createdb
+    todos: []  # owner of todos db
+  databases:
+    todos: todos  # dbname: owner
+  postgresql:
+    version: "16"

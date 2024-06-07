@@ -1,0 +1,24 @@
+apiVersion: databases.schemahero.io/v1alpha4
+kind: Database
+metadata:
+  name: todos-postgresql
+spec:
+  immediateDeploy: true
+  connection:
+    postgres:
+      host:
+        value: todos-postgresql.default.svc.cluster.local
+      user:
+        valueFrom:
+          secretKeyRef:
+            name: todos.todos-postgresql.credentials.postgresql.acid.zalan.do
+            key: username
+      password:
+        valueFrom:
+          secretKeyRef:
+            name: todos.todos-postgresql.credentials.postgresql.acid.zalan.do
+            key: password
+      port:
+        value: "5432"
+      dbname:
+        value: todos
